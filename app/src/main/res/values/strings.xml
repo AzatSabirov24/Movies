@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="rating_text">"Рейтинг:  "</string>
+    <string name="movie_duration_text">Длительность</string>
+    <string name="movie_genre_text">Жанр</string>
+    <string name="movie_rating_text">Рейтинг</string>
+    <string name="released_text_tv">Released</string>
+    <string name="expected_tv_text">Expected</string>
+    <string name="Перезагрузка">reload</string>
+</resources>
