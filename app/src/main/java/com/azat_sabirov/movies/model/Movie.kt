@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Movie(
-    val id: Int = 293724,
+    val id_kinopoisk: Long = 1143242L,
     var title: String = "Джентльмены",
     val title_alternative: String = "The Gentlemen",
     val genres: List<String> = listOf("Боевик", "Комедия", "Криминал"),
@@ -38,47 +38,45 @@ data class Movie(
     )
 ) : Parcelable
 
-fun getReleasedMovie(): List<Movie> {
-    return listOf(
-        Movie(
-            title = "Джентельмены",
-            poster = R.drawable.poster_gentleman,
-            year = "2019",
-            rating_kinopoisk = "8.5"
-        ),
-        Movie(
-            title = "Человек-паук",
-            poster = R.drawable.spider_man_poster,
-            year = "2018",
-            rating_kinopoisk = "7.5"
-        ),
-        Movie(
-            title = "Веном",
-            poster = R.drawable.venom_poster,
-            year = "2018",
-            rating_kinopoisk = "6.8"
-        ),
-        Movie(
-            title = "Выживший",
-            poster = R.drawable.revenant,
-            year = "2015",
-            rating_kinopoisk = "8.4"
-        ),
-        Movie(
-            title = "Эмма",
-            poster = R.drawable.emma_poster,
-            year = "2013",
-            rating_kinopoisk = "7.2"
-        )
+fun getReleasedMovie() = listOf(
+    Movie(
+        id_kinopoisk = 1143242L,
+        title = "Джентльмены",
+        poster = R.drawable.poster_gentleman,
+        year = "2019",
+        rating_kinopoisk = "8.5"
+    ),
+    Movie(
+        title = "Человек-паук",
+        poster = R.drawable.spider_man_poster,
+        year = "2018",
+        rating_kinopoisk = "7.5"
+    ),
+    Movie(
+        title = "Веном",
+        poster = R.drawable.venom_poster,
+        year = "2018",
+        rating_kinopoisk = "6.8"
+    ),
+    Movie(
+        title = "Выживший",
+        poster = R.drawable.revenant,
+        year = "2015",
+        rating_kinopoisk = "8.4"
+    ),
+    Movie(
+        title = "Эмма",
+        poster = R.drawable.emma_poster,
+        year = "2013",
+        rating_kinopoisk = "7.2"
     )
-}
+)
 
-fun getExpectedMovie(): List<Movie> {
-    return listOf(
-        Movie(title = "Чудаки", poster = R.drawable.jackass_poster, year = "2022"),
-        Movie(title = "Бэтмен", poster = R.drawable.batman_poster, year = "2022"),
-        Movie(title = "Морбиус", poster = R.drawable.morbius_poster, year = "2022"),
-        Movie(title = "Топ-Ган", poster = R.drawable.topgun_poster, year = "2022"),
-        Movie(title = "Аватар 2", poster = R.drawable.avatar_poster, year = "2022")
-    )
-}
+fun getExpectedMovie() = listOf(
+    Movie(title = "Чудаки", poster = R.drawable.jackass_poster, year = "2022"),
+    Movie(title = "Бэтмен", poster = R.drawable.batman_poster, year = "2022"),
+    Movie(title = "Морбиус", poster = R.drawable.morbius_poster, year = "2022"),
+    Movie(title = "Топ-Ган", poster = R.drawable.topgun_poster, year = "2022"),
+    Movie(title = "Аватар 2", poster = R.drawable.avatar_poster, year = "2022")
+)
+

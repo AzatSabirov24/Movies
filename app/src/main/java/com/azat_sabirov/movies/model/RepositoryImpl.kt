@@ -1,15 +1,9 @@
 package com.azat_sabirov.movies.model
 
 class RepositoryImpl : Repository {
-    override fun getMovieFromLocalStorageReleased(): List<Movie> {
-        return getReleasedMovie()
-    }
+    override fun getMovieFromLocalStorageReleased() = getReleasedMovie()
 
-    override fun getMovieFromLocalStorageExpected(): List<Movie> {
-        return getExpectedMovie()
-    }
+    override fun getMovieFromLocalStorageExpected() = getExpectedMovie()
 
-    override fun getMovieFromServer(): Movie {
-        return Movie()
-    }
+    override fun getMovieFromServer() = Movie()
 }

@@ -8,6 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="loading_background">#534D4D</color>
-    <color name="title_color">#494140</color>
+    <color name="title_color">@color/black</color>
     <color name="fragment_main_background_color">#DDD9D9</color>
 </resources>

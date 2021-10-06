@@ -38,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/title_tv_margin_start"
                 android:layout_marginTop="@dimen/title_tv_margin_top"
-                android:text="TextView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/poster_iv" />
 
@@ -58,13 +57,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/star_iv_margin_end"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/rating_tv"
-                app:layout_constraintEnd_toStartOf="@+id/rating_tv"
-                app:layout_constraintTop_toTopOf="@+id/rating_tv"
+                app:layout_constraintBottom_toBottomOf="@+id/movie_rating_tv"
+                app:layout_constraintEnd_toStartOf="@+id/movie_rating_tv"
+                app:layout_constraintTop_toTopOf="@+id/movie_rating_tv"
                 app:srcCompat="@android:drawable/btn_star_big_on" />
 
             <TextView
-                android:id="@+id/rating_tv"
+                android:id="@+id/movie_rating_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/rating_tv_margin_end"

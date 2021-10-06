@@ -4,10 +4,8 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.azat_sabirov.movies.R
+import com.azat_sabirov.movies.databinding.FragmentMainRecyclerItemBinding
 import com.azat_sabirov.movies.model.Movie
 
 class MainFragmentAdapter(
@@ -19,7 +17,7 @@ class MainFragmentAdapter(
     private var movieReleasedData: List<Movie> = listOf()
     private var movieExpectedData: List<Movie> = listOf()
 
-    fun removeListener(){
+    fun removeListener() {
         onItemViewClickListener = null
     }
 
@@ -39,10 +37,12 @@ class MainFragmentAdapter(
         parent: ViewGroup,
         viewType: Int
     ): MainViewHolder {
-        return MainViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.fragment_main_recycler_item, parent, false)
+        val binding = FragmentMainRecyclerItemBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
         )
+        return MainViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
@@ -55,16 +55,17 @@ class MainFragmentAdapter(
         return if (isReleased) movieReleasedData.size else movieExpectedData.size
     }
 
-    inner class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(movie: Movie, isReleased: Boolean) {
-            itemView.findViewById<ImageView>(R.id.poster_iv).setImageResource(movie.poster)
-            itemView.findViewById<TextView>(R.id.title_tv).text = movie.title
-            itemView.findViewById<TextView>(R.id.year_tv).text = movie.year
+    inner class MainViewHolder(private val binding: FragmentMainRecyclerItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(movie: Movie, isReleased: Boolean) = with(binding) {
+            posterIv.setImageResource(movie.poster)
+            titleTv.text = movie.title
+            yearTv.text = movie.year
 
             if (isReleased) {
-                itemView.findViewById<ImageView>(R.id.star_iv).visibility = View.VISIBLE
-                itemView.findViewById<TextView>(R.id.rating_tv).visibility = View.VISIBLE
-                itemView.findViewById<TextView>(R.id.rating_tv).text = movie.rating_kinopoisk
+                starIv.visibility = View.VISIBLE
+                movieRatingTv.visibility = View.VISIBLE
+                movieRatingTv.text = movie.rating_kinopoisk
             }
 
             itemView.setOnClickListener {

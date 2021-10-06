@@ -21,18 +21,17 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by lazy { ViewModelProvider(this).get(MainViewModel::class.java) }
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
     private val adapterReleased = MainFragmentAdapter(true, setAdapterClickListener())
     private val adapterExpected = MainFragmentAdapter(false, setAdapterClickListener())
 
-
     private fun setAdapterClickListener(): OnItemViewClickListener {
         return object : OnItemViewClickListener {
             override fun onItemViewClick(movie: Movie) {
                 val manager = activity?.supportFragmentManager
-                if (manager != null) {
+                manager?.let {
                     val bundle = Bundle()
                     bundle.putParcelable(DetailsFragment.BUNDLE_EXTRA, movie)
                     manager.beginTransaction()
@@ -55,18 +54,19 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it as AppState) })
+        viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
         viewModel.getMovieFromLocalSource()
     }
 
     private fun initView() = with(binding) {
-        releasedRcv.adapter = adapterReleased
-        releasedRcv.layoutManager =
-            LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
-        expectedRcv.adapter = adapterExpected
-        expectedRcv.layoutManager =
-            LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+        releasedRcv.apply {
+            adapter = adapterReleased
+            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+        }
+        expectedRcv.apply {
+            adapter = adapterExpected
+            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+        }
     }
 
     private fun renderData(appState: AppState) = with(binding) {

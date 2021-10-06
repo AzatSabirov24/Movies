@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fragment_main_background_color"
     android:orientation="vertical">
 
     <FrameLayout
@@ -16,7 +17,6 @@
             android:id="@+id/mainView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/fragment_main_background_color"
             tools:visibility="visible">
 
             <TextView
@@ -24,10 +24,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/movie_title_margin_top"
+                android:gravity="start"
                 android:textColor="@color/title_color"
                 android:textSize="@dimen/movie_title_text_size"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Джентельмены"
@@ -44,9 +46,11 @@
                 tools:visibility="visible" />
 
             <TextView
-                android:id="@+id/rating_kinopoisk_tv"
+                android:id="@+id/movie_rating_tv"
                 style="@style/movie_field_style"
-                android:layout_marginStart="@dimen/rating_tv_margin_start"
+                android:layout_marginStart="@dimen/rating_tv_fragment_details_margin_start"
+                android:layout_marginTop="@dimen/rating_tv_fragment_details_margin_top"
+                android:textColor="@color/black"
                 android:textSize="@dimen/description_text_size"
                 app:layout_constraintStart_toEndOf="@+id/movie_poster_iv"
                 app:layout_constraintTop_toTopOf="@+id/movie_poster_iv"
@@ -56,16 +60,19 @@
             <TextView
                 android:id="@+id/movie_genres_tv"
                 style="@style/movie_field_style"
-                android:layout_marginTop="12dp"
-                app:layout_constraintStart_toStartOf="@+id/rating_kinopoisk_tv"
-                app:layout_constraintTop_toBottomOf="@+id/rating_kinopoisk_tv"
+                android:layout_marginTop="@dimen/genre_tv_fragment_details_margin_top"
+                android:ems="10"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/movie_rating_tv"
+                app:layout_constraintTop_toBottomOf="@+id/movie_rating_tv"
                 tools:text="Комедия"
                 tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/movie_duration_tv"
                 style="@style/movie_field_style"
-                android:layout_marginTop="@dimen/movie_fields_margin_top"
+                android:layout_marginTop="@dimen/duration_tv_fragment_details_margin_top"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@+id/movie_genres_tv"
                 app:layout_constraintTop_toBottomOf="@+id/movie_genres_tv"
                 tools:text="113 мин"
@@ -76,6 +83,7 @@
                 style="@style/movie_field_style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/description_tv_fragment_details_margin_top"
                 android:inputType="textMultiLine"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -89,9 +97,9 @@
                 android:layout_width="@dimen/rating_iv_width"
                 android:layout_height="@dimen/rating_iv_height"
                 android:layout_marginStart="@dimen/rating_tv_margin_start"
-                app:layout_constraintBottom_toBottomOf="@+id/rating_kinopoisk_tv"
-                app:layout_constraintStart_toEndOf="@+id/rating_kinopoisk_tv"
-                app:layout_constraintTop_toTopOf="@+id/rating_kinopoisk_tv"
+                app:layout_constraintBottom_toBottomOf="@+id/movie_rating_tv"
+                app:layout_constraintStart_toEndOf="@+id/movie_rating_tv"
+                app:layout_constraintTop_toTopOf="@+id/movie_rating_tv"
                 app:srcCompat="@android:drawable/btn_star_big_on" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
