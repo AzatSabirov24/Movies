@@ -1,3 +1,4 @@
+/*
 package com.azat_sabirov.movies.view.main
 
 import android.annotation.SuppressLint
@@ -73,4 +74,4 @@ class MainFragmentAdapter(
             }
         }
     }
-}
+}*/

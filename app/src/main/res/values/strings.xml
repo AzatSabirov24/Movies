@@ -7,4 +7,6 @@
     <string name="released_text_tv">Released</string>
     <string name="expected_tv_text">Expected</string>
     <string name="Перезагрузка">reload</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

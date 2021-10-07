@@ -1,3 +1,4 @@
+/*
 package com.azat_sabirov.movies.view.main
 
 import android.os.Bundle
@@ -99,4 +100,4 @@ class MainFragment : Fragment() {
     interface OnItemViewClickListener {
         fun onItemViewClick(movie: Movie)
     }
-}
+}*/
